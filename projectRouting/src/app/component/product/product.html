@@ -1,0 +1,31 @@
+<div class="product-container">
+
+  <h2 class="table-title">Products</h2>
+
+  <div class="table-wrapper">
+    <table class="product-table">
+
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (data of productData(); track data.id) {
+          <tr class="table-row">
+            <td>{{ data.id }}</td>
+            <td class="title-cell">{{ data.title }}</td>
+            <td>
+              <img [src]="data.images?.[0]" class="product-img" />
+            </td>
+          </tr>
+        }
+      </tbody>
+
+    </table>
+  </div>
+
+</div>

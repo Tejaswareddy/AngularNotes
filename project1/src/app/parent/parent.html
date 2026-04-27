@@ -1,0 +1,22 @@
+<p>Parent works!</p>
+
+<app-child 
+  [data]="data"
+  [User]="User"
+  (notify)="getevent($event)">
+
+  <!-- ✅ Content Projection with Parent Data -->
+  <h1>This is for rendering</h1>
+  <p>{{ data }}</p>
+  <p>{{ User.name }} - {{ User.age }}</p>
+
+</app-child>
+
+<h2>Message from Child:</h2>
+<p>{{ childData }}</p>
+
+<audio #audio controls>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<button (click)="toggle(audio)">Play / Pause</button>

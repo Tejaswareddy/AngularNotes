@@ -1,0 +1,15 @@
+h1{
+    color:red;
+    background-color: rgb(255, 240, 255);
+}
+
+.nav> a{
+    font-weight: 50px;
+    /* font-display: ; */
+    color: black;
+    
+    font-size: xx-large;
+    justify-content: space-between;
+    gap : 10px;
+    align-items: center;
+}

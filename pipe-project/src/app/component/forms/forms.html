@@ -1,0 +1,65 @@
+<p>forms works!</p>
+
+<form [formGroup]="form1" (ngSubmit)="onSubmit()">
+
+  <!-- Username -->
+  <input type="text" formControlName="username" placeholder="enter username"><br>
+
+  <!-- Error -->
+  <div *ngIf="form1.get('username')?.invalid && form1.get('username')?.touched">
+    Username is required
+  </div>
+
+  <!-- Email -->
+  <input type="email" formControlName="email" placeholder="enter email"><br>
+
+  <div *ngIf="form1.get('email')?.errors?.['required']">
+    Email is required
+  </div>
+  <div *ngIf="form1.get('email')?.errors?.['email']">
+    Invalid email
+  </div>
+
+  <!-- Password -->
+  <input type="password" formControlName="password" placeholder="enter password"><br>
+
+  <div *ngIf="form1.get('password')?.errors?.['minlength']">
+    Minimum 8 characters required
+  </div>
+
+  <!-- Select -->
+  <select formControlName="country">
+    <option value="">Select Country</option>
+    <option value="India">India</option>
+    <option value="USA">USA</option>
+    <option value="UK">UK</option>
+  </select><br>
+
+  <!-- RADIO BUTTON (Gender) -->
+  <label>Gender:</label><br>
+
+  <input type="radio" value="male" formControlName="gender"> Male
+  <input type="radio" value="female" formControlName="gender"> Female
+  <input type="radio" value="other" formControlName="gender"> Other
+
+  <div *ngIf="form1.get('gender')?.invalid && form1.get('gender')?.touched">
+    Please select gender
+  </div>
+
+  <br>
+
+  <!-- CHECKBOX -->
+  <input type="checkbox" formControlName="terms">
+  Accept Terms & Conditions
+
+  <div *ngIf="form1.get('terms')?.invalid && form1.get('terms')?.touched">
+    You must accept terms
+  </div>
+
+  <br><br>
+
+  <button type="submit" [disabled]="form1.invalid">
+    Register
+  </button>
+
+</form>

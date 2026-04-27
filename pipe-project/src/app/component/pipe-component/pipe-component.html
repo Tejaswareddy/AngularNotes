@@ -1,0 +1,30 @@
+<table border="1">
+
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Reversed Name</th>
+      <th>Age</th>
+      <th>City</th>
+      <th>Designation</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (data of User; track data.name) {
+      <tr>
+        <td>{{ data.name | titlecase }}</td>
+        <td>{{ data.name | reversepipe }}</td>
+        <td>{{ data.age }}</td>
+        <td>{{ data.city | lowercase }}</td>
+        <td>{{ data.dis | slice:0:4 }}</td>
+        <td>{{ data.salary | currency:'INR' }}</td>
+      </tr>
+    }
+  </tbody>
+
+</table>
+
+<h3>User JSON Data:</h3>
+<pre>{{ User | json }}</pre>

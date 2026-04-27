@@ -1,0 +1,15 @@
+<p>Child works!</p>
+
+<h1>Message from Parent: {{ data }}</h1>
+
+<h2>User Info:</h2>
+<p>{{ User.name }} - {{ User.age }}</p>
+
+<button (click)="senddata()">
+  Click to send data to Parent
+</button>
+
+<h3>Child component by content projection</h3>
+
+<!-- ✅ Projected content will render here -->
+<ng-content></ng-content>

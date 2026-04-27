@@ -1,0 +1,283 @@
+<!-- to see the preview of this, press :- clt + shift + v -->
+
+
+# Angular Project Structure (Detailed)
+
+---
+
+## 1. Overview
+
+When you create an Angular project using Angular CLI, it generates a structured folder system.
+
+This structure helps in:
+
+* Organizing code
+* Managing dependencies
+* Building scalable applications
+
+---
+
+## 2. Root Level Files and Folders
+
+---
+
+### 1. package.json
+
+* Contains project metadata
+* Lists dependencies and scripts
+
+Key sections:
+
+* dependencies → required for production
+* devDependencies → required for development
+* scripts → commands like start, build
+
+---
+
+### 2. package-lock.json
+
+* Locks exact versions of installed packages
+* Ensures same setup on all systems
+
+---
+
+### 3. node_modules
+
+* Contains all installed packages
+* Automatically generated
+* Should not be modified manually
+
+---
+
+### 4. tsconfig.json
+
+* Main TypeScript configuration file
+* Defines compiler options
+
+Examples:
+
+* target (ES version)
+* module system
+* strict type checking
+
+---
+
+### 5. tsconfig.app.json
+
+* TypeScript config specific to application code
+* Extends base tsconfig.json
+
+---
+
+### 6. tsconfig.spec.json
+
+* Used for testing configuration
+* Applied to spec (test) files
+
+---
+
+### 7. angular.json
+
+Main configuration file of Angular project.
+
+Contains:
+
+* Project structure
+* Build configuration
+* Assets (images, icons, etc.)
+* Entry files
+* Environment settings
+
+---
+
+### 8. public folder
+
+* Stores static assets
+* Example: images, icons, fonts
+
+---
+
+## 3. src Folder (Main Application Code)
+
+This is the most important folder.
+
+---
+
+### index.html
+
+* Main HTML file
+* Loaded by browser
+* Angular injects app into this file
+
+---
+
+### main.ts
+
+* Entry point of Angular application
+* Bootstraps the root module or component
+
+Example:
+
+```ts id="a1"
+bootstrapApplication(AppComponent);
+```
+
+---
+
+### styles.css
+
+* Global CSS file
+* Applies styles across entire application
+
+---
+
+### app Folder
+
+Contains main application logic.
+
+---
+
+## 4. app Folder Structure
+
+---
+
+### app.component.ts
+
+* Main component logic
+* Handles data and functionality
+
+---
+
+### app.component.html
+
+* Template (UI structure)
+* Defines how data is displayed
+
+---
+
+### app.component.css
+
+* Styles for this component only
+* Scoped CSS
+
+---
+
+### app.config.ts
+
+* Configuration for application
+* Used in standalone Angular setup
+
+---
+
+### app.config.spec.ts
+
+* Test file for app configuration
+
+---
+
+## 5. Important Angular Concepts
+
+---
+
+### Component
+
+* Basic building block of Angular
+* Combines:
+
+  * HTML (view)
+  * CSS (style)
+  * TypeScript (logic)
+
+---
+
+### Module (older Angular)
+
+* Groups components and services
+* Example: AppModule
+
+(Note: New Angular uses standalone components)
+
+---
+
+### Bootstrap
+
+* Process of starting the app
+* Done in main.ts
+
+---
+
+### Dependency Injection
+
+* Angular provides services automatically
+* Improves code reusability
+
+---
+
+### Assets
+
+Defined in angular.json
+
+Used for:
+
+* Images
+* Icons
+* Static files
+
+---
+
+## 6. Development vs Production
+
+### Development
+
+* Uses devDependencies
+* Faster build, more debugging
+
+---
+
+### Production
+
+* Optimized code
+* Smaller bundle size
+* Better performance
+
+---
+
+## 7. Folder Structure Summary
+
+```text id="a2"
+project/
+│
+├── node_modules/
+├── src/
+│   ├── app/
+│   │   ├── app.component.ts
+│   │   ├── app.component.html
+│   │   ├── app.component.css
+│   │   ├── app.config.ts
+│   │   └── app.config.spec.ts
+│   │
+│   ├── main.ts
+│   ├── index.html
+│   └── styles.css
+│
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.spec.json
+└── angular.json
+```
+
+---
+
+## 8. Summary
+
+* Angular projects follow a structured folder system
+* src folder contains main application code
+* app folder contains components
+* main.ts is entry point
+* angular.json controls project configuration
+* package.json manages dependencies
+* node_modules stores installed libraries
+
+This structure helps in building scalable and maintainable applications.
