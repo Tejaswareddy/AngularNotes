@@ -6,23 +6,32 @@ import { inject, Injectable } from '@angular/core';
 })
 export class ApiDataService {
 
-  http:HttpClient = inject(HttpClient);
+  http: HttpClient = inject(HttpClient);
 
+  baseUrl = 'https://api.escuelajs.co/api/v1/products';
+
+  // ✅ GET ALL
   getData() {
-    return this.http.get('https://api.escuelajs.co/api/v1/products');
+    return this.http.get<any[]>(this.baseUrl);
   }
 
-
-  sendData(data: any) {
-    return this.http.post('https://api.escuelajs.co/api/v1/products/' , data)
+  // ✅ GET BY ID
+  getById(id: number) {
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  deleteData() {
-    return this.http.delete('https://api.escuelajs.co/api/v1/products/1');
+  // ✅ POST
+  createProduct(data: any) {
+    return this.http.post(this.baseUrl, data);
   }
 
+  // ✅ PUT (UPDATE)
+  updateProduct(id: number, data: any) {
+    return this.http.put(`${this.baseUrl}/${id}`, data);
+  }
 
-  sendFormData(data: any) {
-    return this.http.post('https://api.escuelajs.co/api/v1/users' , data)
+  // ✅ DELETE (FIXED)
+  deleteProduct(id: number) {
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 }

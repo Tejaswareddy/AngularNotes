@@ -6,6 +6,7 @@ import { ProfileInfo } from './component/home-child/profile-info/profile-info';
 import { Feedback } from './component/home-child/feedback/feedback';
 import { Electronics } from './component/electronics/electronics';
 import { About } from './component/about/about';
+import { ErrorPages } from './component/error-pages/error-pages';
 
 
 export const routes: Routes = [
@@ -17,7 +18,7 @@ export const routes: Routes = [
     {path:"product", component:Product},
     {path:"electronics", component:Electronics},
     {path:"about", component:About},
-    // {path:"**", component:Page},
+    {path:"**", component:ErrorPages},
 ]
 
 /*

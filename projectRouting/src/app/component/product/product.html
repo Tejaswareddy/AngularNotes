@@ -2,6 +2,9 @@
 
   <h2 class="table-title">Products</h2>
 
+  <!-- ADD BUTTON -->
+  <button (click)="addProduct()">Add Product</button>
+
   <div class="table-wrapper">
     <table class="product-table">
 
@@ -10,6 +13,7 @@
           <th>Id</th>
           <th>Title</th>
           <th>Image</th>
+          <th>Actions</th>
         </tr>
       </thead>
 
@@ -17,9 +21,14 @@
         @for (data of productData(); track data.id) {
           <tr class="table-row">
             <td>{{ data.id }}</td>
-            <td class="title-cell">{{ data.title }}</td>
+            <td>{{ data.title }}</td>
             <td>
               <img [src]="data.images?.[0]" class="product-img" />
+            </td>
+
+            <td>
+              <button (click)="selectProduct(data)">Edit</button>
+              <button (click)="deleteProduct(data.id)">Delete</button>
             </td>
           </tr>
         }
@@ -27,5 +36,17 @@
 
     </table>
   </div>
+
+  <!-- UPDATE FORM -->
+  @if (selectedProduct) {
+    <div class="edit-form">
+      <h3>Edit Product</h3>
+
+      <input [(ngModel)]="selectedProduct.title" placeholder="Title">
+      <input [(ngModel)]="selectedProduct.price" placeholder="Price">
+
+      <button (click)="updateProduct()">Update</button>
+    </div>
+  }
 
 </div>
